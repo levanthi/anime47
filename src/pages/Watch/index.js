@@ -373,28 +373,6 @@ function Watch()
                 <button onClick={handleLight}>
                     Tắt đèn
                 </button>
-                <button
-                    onClick={async ()=>{
-                        const user = JSON.parse(sessionStorage.getItem('anime47User'))
-                        if(user)
-                        {
-                            const userName = user.name
-                            const path= window.location.pathname
-                            const animeName = path.slice(path.lastIndexOf('/')+1)
-                            const type = path.slice(path.indexOf('/')+1,path.lastIndexOf('/'))
-                            const userRef = doc(db, "user",user.name)
-                            await updateDoc(userRef, {
-                                [type]:arrayUnion(animeName)
-                            })
-                            alert('Thêm vào tủ phim thành công!')
-                        }
-                        else{
-                            alert('Bạn phải đăng nhập để sử dụng chức năng này!')
-                        }
-                    }}
-                >
-                    Lưu
-                </button>
                 <button onClick={handleExpand}>
                     Phóng to
                 </button>

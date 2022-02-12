@@ -10,6 +10,7 @@ import {ReactComponent as Next} from '../../static/icon/chevron-right-solid.svg'
 import {ReactComponent as Play} from '../../static/icon/play-solid.svg'
 import styles from './slider.module.scss'
 import Loading from '../Loading'
+import { PATHAPP } from '../../FunctionSpJs/constant'
 
 function Slider()
 {
@@ -57,7 +58,7 @@ function Slider()
             <div className={styles.slides}>
             {slider.map((slide,index)=>{
                 return <div title={slide.name} key={index} className={styles.slide}>
-                    <Link to={`/anime/${removeAccents(slide.name.toLowerCase())}`}>
+                    <Link to={`anime/${removeAccents(slide.name.toLowerCase())}`}>
                         <span className={styles.play}>
                             <Play/>
                         </span>

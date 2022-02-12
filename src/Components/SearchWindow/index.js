@@ -2,6 +2,7 @@ import { collection, query, where, getDocs } from "firebase/firestore"
 import {useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
 import {db} from '../../Firebase/config'
+import { PATHAPP } from "../../FunctionSpJs/constant"
 import removeAccents from "../../FunctionSpJs/removeAccents"
 import twoNumber from '../../FunctionSpJs/twoNumber'
 import Loading from "../Loading"
@@ -77,7 +78,7 @@ function SearchWindow({searchInput})
         <div className={styles.searchList}>
             {animeList.map((animeItem)=>{
                 return (
-                    <Link key={animeItem.data.name} to={`${animeItem.type}/${animeItem.data.name}`}>
+                    <Link key={animeItem.data.name} to={`${PATHAPP}/${animeItem.type}/${animeItem.data.name}`}>
                         <div className={styles.searchItem}>
                             <div className={styles.thumbnail} style={{backgroundImage:`url(${animeItem.data.thumbnail})`}}></div>
                             <div className={styles.info}>

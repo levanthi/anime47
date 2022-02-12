@@ -24,7 +24,7 @@ function QA()
             <h1>Một số kiến thức và thắc mắc.</h1>
             {
                 list.map((item,index)=>{
-                    return <div className={styles.group}>
+                    return <div className={styles.group} key={index}>
                         <h2>{`${index+1}. ${item.q}.`}</h2>
                         <p>{`+ Đáp : ${item.a}.`}</p>
                     </div>

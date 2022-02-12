@@ -7,6 +7,7 @@ import { userContext } from '../../App'
 import {db} from '../../Firebase/config'
 import styles from './login.module.scss'
 import Validator from '../../FunctionSpJs/Validator'
+import { PATHAPP } from '../../FunctionSpJs/constant'
 function SignIn()
 {
     const usercontext = useContext(userContext)
@@ -19,7 +20,7 @@ function SignIn()
             sessionStorage.setItem('anime47User',JSON.stringify({name:result.name}))
             alert('Đăng nhập thành công')
             usercontext.setUser(docSnap.data())
-            navigate('/')
+            navigate(`/${PATHAPP}`)
         } else {
             const errorElement = document.querySelector(exist.selector)
             errorElement.innerHTML = exist.message

@@ -9,6 +9,7 @@ import genresToPath from '../../FunctionSpJs/genresToPath'
 import {ReactComponent as Search} from '../../static/icon/search-solid.svg'
 import styles from './navbar.module.scss'
 import SearchWindow from '../SearchWindow'
+import { PATHAPP } from '../../FunctionSpJs/constant'
 
 function Navbar()
 {
@@ -45,13 +46,13 @@ function Navbar()
     })
     function getFilterElement(genres,path){
         return genres.map((genre,index)=>{
-            return <Link key={index} to={`/filter${path}/${removeAccents(genresToPath(genre).replaceAll(' ','-').toLowerCase())}`}>{genre}</Link>
+            return <Link key={index} to={`${PATHAPP}/filter${path}/${removeAccents(genresToPath(genre).replaceAll(' ','-').toLowerCase())}`}>{genre}</Link>
         })
     }
 
     return <div className={styles.navbar}>
         <nav>
-            <Link to='/'>
+            <Link to={PATHAPP}>
                 <div className={styles.logo}>
                 </div>
             </Link>
@@ -133,7 +134,7 @@ function Navbar()
                             </ul>
                         </div>
                     </button>
-                    <Link to='/favorite' >
+                    <Link to={`${PATHAPP}/favorite`} >
                     <button 
                         className={styles.userCollection}
                     >
@@ -143,8 +144,8 @@ function Navbar()
                 </div>
             :
             <div className={styles.login}>
-                <Link to='/login/sign-up'><button>Đăng Ký</button></Link>
-                <Link to='/login/sign-in'><button>Đăng Nhập</button></Link>
+                <Link to={`${PATHAPP}/login/sign-up`}><button>Đăng Ký</button></Link>
+                <Link to={`${PATHAPP}/login/sign-in`}><button>Đăng Nhập</button></Link>
             </div>
             }
             
@@ -153,7 +154,7 @@ function Navbar()
             <ul className={styles.filterList}>
                 <li className={styles.filterItem}>
                     <span style={{color:'white'}}> TRANG CHỦ</span>
-                    <Link className={styles.homeButton} to='/' />
+                    <Link className={styles.homeButton} to={PATHAPP} />
                 </li>
                 <li className={styles.filterItem}>
                     <Link to=''> THỂ LOẠI</Link>
@@ -193,7 +194,7 @@ function Navbar()
                 </li>
                 <li className={styles.filterItem}>
                     <span style={{color:'white'}}>HỎI ĐÁP</span>
-                    <Link className={styles.homeButton} to='q&a'></Link>
+                    <Link className={styles.homeButton} to={`${PATHAPP}/q&a`}></Link>
                 </li>
                 <li className={styles.filterItem}>
                     <Link to=''> TV/MOVIE</Link>

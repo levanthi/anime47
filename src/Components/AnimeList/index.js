@@ -9,6 +9,7 @@ import {ReactComponent as Comment} from '../../static/icon/comment-alt-solid.svg
 import {ReactComponent as Check} from '../../static/icon/check-solid.svg'
 import {ReactComponent as Play} from '../../static/icon/play-solid.svg'
 import Loading from '../Loading'
+import { PATHAPP } from '../../FunctionSpJs/constant'
 
 function AnimeList({path='anime',limited=20,data})
 {
@@ -35,7 +36,7 @@ function AnimeList({path='anime',limited=20,data})
                     <div title={anime.name} key={anime.name} className='col l-3 c-4'>
                         <div className={styles.animeItem}>
                             <span className={styles.brand}>{`${anime.episodes}/${anime.maxEpisodes||'??'}`}</span>
-                            <Link to={`${path}/${anime.name.toLowerCase()}`}>
+                            <Link to={`/${PATHAPP}${path}/${anime.name.toLowerCase()}`}>
                                 <span className={styles.play}>
                                     <Play/>
                                 </span>

@@ -7,6 +7,7 @@ import FilterListButton from '../FilterListButton'
 import styles from './topAnime.module.scss'
 import twoNumber from '../../FunctionSpJs/twoNumber'
 import Loading from '../Loading'
+import { PATHAPP } from '../../FunctionSpJs/constant'
 
 function TopAnime()
 {
@@ -82,7 +83,7 @@ function TopAnime()
                                 return(
                                     <Link
                                         key={anime.name} 
-                                        to={`anime/${anime.name}`} 
+                                        to={`${PATHAPP}/anime/${anime.name}`} 
                                         className={styles.animeItem}
                                         style={index===0?{backgroundImage:`url(${anime.thumbnail})`}:{}}
                                     >
@@ -128,7 +129,7 @@ function TopAnime()
                                 return(
                                     <Link
                                         key={anime.name} 
-                                        to={`anime/${anime.name}`} 
+                                        to={`${PATHAPP}/anime/${anime.name}`} 
                                         className={styles.animeItem}
                                         style={index===0?{backgroundImage:`url(${anime.thumbnail})`}:{}}
                                     >

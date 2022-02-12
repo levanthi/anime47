@@ -20,6 +20,7 @@ function AdvancedFilter()
     const pageNumb = useRef()
     let path = window.location.pathname
     let type = path.slice(path.indexOf('/',1)+1,path.lastIndexOf('/'))
+    type=type.slice(type.indexOf('/')+1)
     let field = path.slice(path.lastIndexOf('/')+1).toLowerCase()
     let compareOperator
     let pathName

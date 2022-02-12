@@ -8,6 +8,7 @@ import genreToAccent from '../../FunctionSpJs/genreToAccent'
 import styles from './detail.module.scss'
 import twoNumber from '../../FunctionSpJs/twoNumber'
 import Loading from '../../Components/Loading'
+import { PATHAPP } from '../../FunctionSpJs/constant'
 
 function Detail()
 {
@@ -17,8 +18,8 @@ function Detail()
         (()=>{
             setAnime(null)
             let pathName = window.location.pathname.slice(1)
-            let path = pathName.slice(0,pathName.indexOf('/'))
-            let name = pathName.slice(pathName.indexOf('/')+1)
+            let name = pathName.slice(pathName.lastIndexOf('/')+1)
+            let path = pathName.slice(pathName.indexOf('/')+1,pathName.lastIndexOf('/'))
             let anime = {}
             const q = query(collection(db, path), where("name", "==", name))
             const q1 = query(collection(db, 'videos'), where("name", "==", name))
@@ -60,8 +61,10 @@ function Detail()
                                                             const userName = user.name
                                                             const path= window.location.pathname
                                                             const animeName = path.slice(path.lastIndexOf('/')+1)
-                                                            const type = path.slice(path.indexOf('/')+1,path.lastIndexOf('/'))
+                                                            let type = path.slice(path.indexOf('/')+1,path.lastIndexOf('/'))
+                                                            type=type.slice(type.indexOf('/')+1)
                                                             const userRef = doc(db, "user",user.name)
+
                                                             await updateDoc(userRef, {
                                                                 [type]:arrayUnion(animeName)
                                                             })
@@ -73,7 +76,7 @@ function Detail()
                                                     }}
                                                 >Lưu Lại</button>
                                                 <Link
-                                                    to={`/watch/${window.location.pathname.slice(window.location.pathname.lastIndexOf('/')+1)}`}
+                                                    to={`/${PATHAPP}/watch/${window.location.pathname.slice(window.location.pathname.lastIndexOf('/')+1)}`}
                                                 >
                                                     <button>Xem Anime</button>
                                                 </Link>
@@ -101,10 +104,10 @@ function Detail()
                                                 <span className={styles.genres}>
                                                     
                                                 {
-                                                    anime.genres.map((genre,index,arr)=>{
+                                                    anime.genres?anime.genres.map((genre,index,arr)=>{
                                                         return (
                                                             <Link 
-                                                                key={index} to={`/filter/genres/${removeAccents(genre).replaceAll(' ','-').toLowerCase()}`}
+                                                                key={index} to={`/${PATHAPP}/filter/genres/${removeAccents(genre).replaceAll(' ','-').toLowerCase()}`}
                                                                 onClick={()=>{
                                                                     window.scroll({top:0})
                                                                 }}
@@ -113,7 +116,7 @@ function Detail()
                                                                 {index===arr.length-1?'':','}
                                                             </Link>
                                                         )
-                                                    })
+                                                    }):''
                                                 }
                                                     
                                                 </span>

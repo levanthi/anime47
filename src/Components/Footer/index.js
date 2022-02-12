@@ -4,6 +4,7 @@ import styles from './footer.module.scss'
 import {ReactComponent as Facebook} from '../../static/icon/facebook-f-brands.svg'
 import {ReactComponent as Like} from '../../static/icon/thumbs-up-solid.svg'
 import {ReactComponent as Phone} from '../../static/icon/phone-alt-solid.svg'
+import { PATHAPP } from '../../FunctionSpJs/constant'
 
 function Footer()
 {
@@ -11,7 +12,7 @@ function Footer()
         <footer>
             <div className={styles.footer}>
                 <div className={styles.info}>
-                    <Link to='/'>Xem anime</Link>
+                    <Link to={PATHAPP}>Xem anime</Link>
                     <span>© 2017 All Rights Reserved •</span>
                 </div>
                 <div className={styles.contact}>
@@ -30,7 +31,7 @@ function Footer()
                     </a>
 
                     <div className={styles.advertise}>
-                        <Link to='/'>
+                        <Link to={PATHAPP}>
                             <span className={styles.phone}>
                                 <Phone/>
                             </span>

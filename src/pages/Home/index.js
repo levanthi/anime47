@@ -6,6 +6,7 @@ import clsx from 'clsx'
 import styles from './home.module.scss'
 import AnimeList from '../../Components/AnimeList'
 import FiterListbutton from '../../Components/FilterListButton'
+import { PATHAPP } from '../../FunctionSpJs/constant'
 
 function Home()
 {
@@ -35,19 +36,19 @@ function Home()
                         </div>
                         <div className='row m-100'>
                             <AnimeList path={'/anime'} limited={20} />
-                            <Link to='/filter/anime/all' className='more'>Xem thêm</Link>
+                            <Link to={`/${PATHAPP}/filter/anime/all`} className='more'>Xem thêm</Link>
                         </div>
 
                         <div className='titleBtnList'>HOẠT HÌNH TRUNG QUỐC</div>
                         <div className='row m-100'>
                             <AnimeList path={'/china'} limited={4} />
-                            <Link to='/filter/china/all' className='more'>Xem thêm</Link>
+                            <Link to={`/${PATHAPP}/filter/china/all`} className='more'>Xem thêm</Link>
                         </div>
 
                         <div className='titleBtnList'>PHIM DẠNG NGƯỜI ĐÓNG</div>
                         <div className='row m-100'>
                             <AnimeList path={'/live-action'} limited={4} />
-                            <Link to='/filter/live-action/all' className='more'>Xem thêm</Link>
+                            <Link to={`/${PATHAPP}/filter/live-action/all`} className='more'>Xem thêm</Link>
                         </div>
                     </div>
 

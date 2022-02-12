@@ -16,6 +16,7 @@ import Login from './Components/Login'
 import Favorite from './pages/Favorite'
 import './App.css'
 import './static/css/grid.css'
+import {PATHAPP} from './FunctionSpJs/constant'
 
 export const userContext = createContext()
 
@@ -56,24 +57,20 @@ function App() {
     <Navbar/>
     <div className='body'>
       <Routes>
-        <Route path='/' element={<Slider/>} ></Route>
+        <Route path={PATHAPP} element={<Slider/>} ></Route>
       </Routes>
       <div className='row'>
         <div className='col l-8 m-12 c-12'>
         <Routes>
-        <Route path='/' element={<Home/>} ></Route>
-        <Route path='/q&a' element={<QA/>} />
-        <Route 
-          path='/admin' 
-          element={isAdmin.current?<Admin/>:<Home/>} 
-        ></Route>
-        <Route path='/filter/:slug/:slug' element={<AdvancedFilter/>}></Route>
-        <Route path='/watch/:slug' element={<Watch/>}></Route>
-        <Route path='/anime/:slug' element={<Detail/>}></Route>
-        <Route path='/china/:slug' element={<Detail/>}></Route>
-        <Route path='/live-action/:slug' element={<Detail/>}></Route>
-        <Route path='/login/:slug' element={<Login />}></Route>
-        <Route path='favorite' element={<Favorite/>}></Route>
+        <Route path={PATHAPP} element={<Home/>} ></Route>
+        <Route path={`${PATHAPP}/q&a`} element={<QA/>} />
+        <Route path={`${PATHAPP}/filter/:slug/:slug`} element={<AdvancedFilter/>}></Route>
+        <Route path={`${PATHAPP}/watch/:slug`} element={<Watch/>}></Route>
+        <Route path={`${PATHAPP}/anime/:slug`} element={<Detail/>}></Route>
+        <Route path={`${PATHAPP}/china/:slug`} element={<Detail/>}></Route>
+        <Route path={`${PATHAPP}/live-action/:slug`} element={<Detail/>}></Route>
+        <Route path={`${PATHAPP}/login/:slug`} element={<Login />}></Route>
+        <Route path={`${PATHAPP}/favorite`} element={<Favorite/>}></Route>
       </Routes>
         </div>
         <div className='col l-4 m-12 c-12 topAnime'>

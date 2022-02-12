@@ -6,6 +6,7 @@ import { doc, getDoc,setDoc,collection } from "firebase/firestore"
 import {db} from '../../Firebase/config'
 import styles from './login.module.scss'
 import Validator from '../../FunctionSpJs/Validator'
+import { PATHAPP } from '../../FunctionSpJs/constant'
 
 function SignUp()
 {
@@ -31,7 +32,7 @@ function SignUp()
     useEffect(()=>{
         if(isSubmit)
         {
-            navigate('/login/sign-in')
+            navigate(`/${PATHAPP}/login/sign-in`)
         }
     },[isSubmit])
 

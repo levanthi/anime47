@@ -13,6 +13,7 @@ function Favorite()
     const pageNumb = useRef(0)
     const [currentPage,setCurrentPage] = useState(1)
     const [activeType,setActiveType] = useState('anime')
+    const isEmpty = useRef()
     function handleActive(e){
         document.querySelector(`.${styles.selectWrap} button.active`).classList.remove('active')
         e.target.classList.add('active')
@@ -43,22 +44,26 @@ function Favorite()
         setCurrentPage(1)
         if(nameList.length===0)
         {
+            isEmpty.current=true
             setFavoriteList()
-            return 
         }
-        await nameList.forEach(async(name,index)=>{
-            let animeRef = collection(db, activeType)
-            let q = query(animeRef, where('name', "==", name))
-            let querySnapshot = await getDocs(q)
-            querySnapshot.forEach(doc=>{
-                animeList.push(doc.data())
+        else{
+            nameList.forEach(async(name,index)=>{
+                let animeRef = collection(db, activeType)
+                let q = query(animeRef, where('name', "==", name))
+                let querySnapshot = await getDocs(q)
+                querySnapshot.forEach(doc=>{
+                    animeList.push(doc.data())
+                })
+                if(index===nameList.length-1)
+                {
+                    isEmpty.current=false
+                    setFavoriteList(animeList)
+                }
             })
-            if(index===nameList.length-1)
-            {
-                setFavoriteList(animeList)
-            }
-        })
+        }
     },[activeType])
+    console.log(favoriteList)
     return(
         <div className={styles.favorite}>
             <h2>Tủ Phim</h2>
@@ -90,8 +95,9 @@ function Favorite()
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
             />
-            :<h3>Bạn chưa thêm phim vào tủ!</h3>
+            :''
             }
+            {isEmpty.current?<h3>Bạn chưa thêm phim vào tủ!</h3>:''}
         </div>
     )
 }
