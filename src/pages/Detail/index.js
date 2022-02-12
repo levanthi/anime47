@@ -58,7 +58,6 @@ function Detail()
                                                         const user = JSON.parse(sessionStorage.getItem('anime47User'))
                                                         if(user)
                                                         {
-                                                            const userName = user.name
                                                             const path= window.location.pathname
                                                             const animeName = path.slice(path.lastIndexOf('/')+1)
                                                             let type = path.slice(path.indexOf('/')+1,path.lastIndexOf('/'))

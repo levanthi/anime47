@@ -1,5 +1,5 @@
 import {useState,useRef,useEffect} from 'react'
-import { collection, query, where, getDocs,doc, updateDoc,arrayUnion } from "firebase/firestore"
+import { collection, query, where, getDocs } from "firebase/firestore"
 
 import {db} from '../../Firebase/config'
 import Loading from '../../Components/Loading'
@@ -181,10 +181,8 @@ function Watch()
                             if(currentTime)
                                 currentTime.innerText = converSecondstoHMS(e.target.currentTime)
                         },1000)
-                        console.log(idInterValRef.current)
                     }}
                     onPause={()=>{
-                        console.log(idInterValRef.current)
                         clearInterval(idInterValRef.current)
                     }}
                     onTimeUpdate={(e)=>{
