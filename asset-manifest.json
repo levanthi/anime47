@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/anime47/static/css/main.656306e8.css",
-    "main.js": "/anime47/static/js/main.482a98cd.js",
+    "main.js": "/anime47/static/js/main.5cbf0e4c.js",
     "static/media/volume-up-solid.svg": "/anime47/static/media/volume-up-solid.a09bdbf517c9e51d3192c31146a87017.svg",
     "static/media/thumbs-up-solid.svg": "/anime47/static/media/thumbs-up-solid.93e6558640b476e6ef479483cec1d53c.svg",
     "static/media/cog-solid.svg": "/anime47/static/media/cog-solid.540ab5dc24435d2cb38ed8b449b49bea.svg",
@@ -22,10 +22,10 @@
     "static/media/caret-down-solid.svg": "/anime47/static/media/caret-down-solid.f5845b071e60a3eedf85c6fe5df7466e.svg",
     "static/media/play-solid.svg": "/anime47/static/media/play-solid.3c7578b0bb8f6f5b7ce93977efc73570.svg",
     "main.656306e8.css.map": "/anime47/static/css/main.656306e8.css.map",
-    "main.482a98cd.js.map": "/anime47/static/js/main.482a98cd.js.map"
+    "main.5cbf0e4c.js.map": "/anime47/static/js/main.5cbf0e4c.js.map"
   },
   "entrypoints": [
     "static/css/main.656306e8.css",
-    "static/js/main.482a98cd.js"
+    "static/js/main.5cbf0e4c.js"
   ]
 }
