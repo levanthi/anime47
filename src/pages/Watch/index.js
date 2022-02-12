@@ -39,6 +39,14 @@ function Watch()
             setEpisode(episodes)
         })()
         videoRef.current.isPlaying = false;
+        return ()=>{
+            let topAnime = document.querySelector(`.${topAnimeStyle.topAnime}`)
+            if(topAnime)
+            {
+                topAnime.style.marginTop=0
+            }
+            clearInterval(idInterValRef.current)
+        }
     },[])
     function handlePlayStop()
     {
@@ -167,13 +175,16 @@ function Watch()
                         errorElement.style.display='block'
                     }}
                     onPlaying={(e)=>{
+                        clearInterval(idInterValRef.current)
                         idInterValRef.current = setInterval(()=>{
                             let currentTime = document.querySelector(`.${styles.currentTime}`)
                             if(currentTime)
                                 currentTime.innerText = converSecondstoHMS(e.target.currentTime)
                         },1000)
+                        console.log(idInterValRef.current)
                     }}
                     onPause={()=>{
+                        console.log(idInterValRef.current)
                         clearInterval(idInterValRef.current)
                     }}
                     onTimeUpdate={(e)=>{
