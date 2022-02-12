@@ -1,0 +1,416 @@
+
+@keyframes scaleTopLeft
+{
+    0%{
+        transform: scale(.9,.8);
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@mixin filterSelect {
+    display: inline-block;
+    color:rgb(230, 230, 230);
+    text-decoration: none;
+    width: 160px;
+    text-align: left;
+    padding:8px 6px;
+    font-weight: lighter;
+    font-size: 1.4rem;
+    letter-spacing: 0px;
+    box-sizing: border-box;
+    &:hover{
+        cursor: pointer;
+        background-color: rgb(49, 49, 49);
+    }
+}
+
+@mixin selectWrap{
+    display: none;
+    position: absolute;
+    z-index:10;
+    left:0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding:4px;
+    box-sizing: unset;
+    transform-origin: top left;
+    animation:scaleTopLeft .2s ease; 
+}
+
+.navbar {
+    width: 100%;
+    background: url(https://anime47.com/skin/24032017/img/header-bg.jpg) repeat-x;
+    nav
+    {
+    display: flex;
+    max-width: 1000px;
+    margin: auto;
+    height:56px;
+    }
+    .logo
+    {
+        height: 100%;
+        width: 260px;
+        background: url(https://anime47.com/skin/24032017/img/image.png?v=1.2) 0px -320px;
+    }
+    .search
+    {
+        flex:1;
+        height: 100%;
+        .inputWrap
+        {
+            height: 100%;
+            padding:8px 0;
+            position: relative;
+            input{
+                height: 100%;
+                width: 100%;
+                border-radius: 25px;
+                background-color: rgba(0,0,0,.3);
+                color:#999;
+                font-size: 1.5rem;
+                padding:0 40px;
+                border: 1px solid #273e52;
+                &:focus{
+                    outline: 1px solid #1464aa;
+                }
+            }
+            svg{
+                position: absolute;
+                width: 16px;
+                color: rgb(233, 233, 233);
+                top:50%;
+                transform: translateY(-50%);
+                left:14px;
+                cursor:text;
+            }
+        }
+    }
+    .login
+    {
+        height: 100%;
+        padding:10px 0;
+        margin-left: 50px;
+        button{
+            color:white;
+            background-color:rgb(71, 71, 71);
+            height: 100%;
+            padding:0 12px;
+            border: 1px solid rgb(49, 49, 49);
+            border-top: 1px solid rgb(121, 121, 121);
+            font-size: 1.4rem;
+            &:hover{
+                cursor: pointer;
+                filter: brightness(1.2);
+            }
+        }
+        :first-child{
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+            border-right: unset;
+        }
+        :last-child{
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+    }
+
+}
+
+.homeButton
+{
+    position: absolute;
+    top:0;
+    right:0;
+    bottom: 0;
+    left: 0;
+}
+.filter
+{
+    width: 100%;
+    background-color: #131313;
+    .filterList{
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        max-width: 1000px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        .filterItem{
+            display:block;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            padding:14px 12px;
+            letter-spacing: -1px;
+            &:hover{
+                cursor: pointer;
+                background-color: #418A98;
+                .genres{
+                    display: flex ;
+                }
+                div{
+                    display: flex;
+                }
+            }
+            div{
+                z-index: 40;
+            }
+            a{
+                color:rgb(230, 230, 230);
+                text-decoration: none;
+            }
+        }
+    }
+}
+div.genres
+{
+    display: none ;
+    position: absolute;
+    z-index:10;
+    width: 800px;
+    left:0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding:4px;
+    box-sizing: unset;
+    transform-origin: top left;
+    animation:scaleTopLeft .2s ease;
+    a{
+        @include filterSelect;
+    }
+}
+.status
+{
+    @include selectWrap();
+    a{
+        @include filterSelect();
+    }
+}
+.topViews
+{
+    @include selectWrap();
+    width: 640px;
+    flex-wrap: wrap;
+    a{
+        @include filterSelect();
+    }
+}
+.topComments
+{
+    @include selectWrap();
+    width:480px;
+    flex-wrap: wrap;
+    a{
+        @include filterSelect();
+    }
+}
+.duo
+{
+    @include selectWrap();
+    width:340px;
+    flex-wrap: wrap;
+    a{
+        @include filterSelect();
+        width: 170px;
+    }
+}
+.year
+{
+    @include selectWrap();
+    flex-wrap: wrap;
+    a{
+        @include filterSelect();
+        width: 170px;
+    }
+}
+.tvMovie
+{
+    @include selectWrap();
+    flex-wrap: wrap;
+    a{
+        @include filterSelect();
+        width: 170px;
+    }
+}
+
+.searchWindow
+{
+    min-height: 200px;
+    display: none;
+    position: absolute;
+    left:0;
+    right:0;
+    height: auto;
+    max-height: 80vh;
+    z-index: 20;
+    border-radius: 5px;
+    overflow-y: auto;
+    top:100%;
+    // box-shadow: 0 0px 3px rgb(97, 97, 97);
+}
+.searchWindow::-webkit-scrollbar {
+    width: 1px;
+  }
+  
+  /* Track */
+.searchWindow::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+.searchWindow::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+.searchWindow::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.userGroup
+{
+    display: flex;
+    margin-left: 40px;
+    align-items: center;
+    button{
+        color: white;
+        padding:6px 11px 7px;
+        border-radius: 3px;
+        border: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+        transition: filter .3s;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    .userOption
+    {
+        background-color: #3896a8;
+        position: relative;
+        &:hover{
+            background-color: #318292;
+        }
+    }
+    .userCollection{
+        background-color: #d9534f;
+        &:hover{
+            background-color: #b84945;
+        }
+    }
+    .arrowDow
+    {
+        padding-left: 10px;
+        svg{
+            width: 7px;
+        }
+    }
+    .option
+    {
+        display: none;
+        position: absolute;
+        z-index: 100;
+        background-color: white;
+        left:0;
+        right:0;
+        top: calc(100% + 4px);
+        border-radius: 3px;
+        color:black;
+        ul{
+            padding-left: 0;
+            margin: 0;
+            li{
+                list-style: none;
+                text-align: left;
+                font-size: 1.4rem;
+                font-weight: lighter;
+                padding:4px 20px;
+                margin: 8px 0;
+                &:hover{
+                    background-color: #357ebd;
+                    color:white;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:1023px)
+{
+    .logo{
+        margin-left: 40px !important;
+    }
+    .userGroup{
+        margin-right: 40px !important;
+    }
+    .duo{
+        width: 185px;
+        a{
+            width: 185px;
+        }
+    }
+    .topComments{
+        width: unset;
+    }
+    .topViews{
+        width: 320px;
+    }
+    .genres{
+        width: 640px !important;
+    }
+}
+@media (max-width:739px)
+{
+    .genres{
+        width: 320px !important;
+    }
+    .status{
+        &:hover{
+            display: block !important;
+        }
+    }
+    .topViews{
+        width: 160px;
+    }
+    nav{
+        flex-direction: column;
+        padding:10px;
+        height: 180px !important;
+        a{
+            .logo{
+                height: 52px !important;
+                margin-left: 0 !important;
+            }
+        }
+        .inputWrap{
+            height: unset !important;
+            input{
+                height: 44px !important;
+                background-color: black !important;
+            }
+        }
+        .login{
+            margin-left: auto !important;
+            button{
+                padding:8px 10px;
+            }
+        }
+    }
+    .userGroup
+    {
+        margin-left: auto;
+        margin-bottom: 12px;
+    }
+    .filter{
+        // margin-top: 150px;
+    }
+}

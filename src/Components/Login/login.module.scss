@@ -1,0 +1,75 @@
+
+.authen{
+    background-color: rgb(29, 29, 29);
+    margin-top: 30px;
+    padding:30px;
+    color:white;
+    font-size: 1.35rem;
+    font-weight: bolder;
+    .formGroup
+    {
+        padding:6px 0 3px;
+        display: flex;
+        label{
+            min-width: 126px;
+            display: block;
+            margin-right: 12px;
+            align-self: center;
+            text-align: right;
+        }
+        input{
+            flex:1;
+            padding: 9px 8px;
+            border: 1px solid #111;
+            background-color: #333;
+            margin-right: 90px;
+            border-radius: 4px;
+            color:white;
+            transition: box-shadow .3s;
+            &:focus{
+                outline: none;
+                box-shadow: 0 0 8px 0px rgb(0, 100, 139);
+            }
+        }
+    }
+    button{
+        margin-left: 138px;
+        padding:10px 12px;
+        font-size: 1.4rem;
+        border-radius: 5px;
+        border:none;
+        color:white;
+        background-color: #428bca;
+        margin-top: 8px;
+        cursor: pointer;
+        &:hover{
+            filter: brightness(.9);
+        }
+    }
+}
+.error
+{
+    color: red;
+    margin-left: 138px;
+}
+@media (max-width:739px)
+{
+    .formGroup{
+        flex-direction: column;
+        input{
+            margin-right: 0 !important;
+        }
+        label{
+            text-align: left !important;
+            width: 100%;
+            margin-left: 15px;
+            margin-bottom: 8px;
+        }
+    }
+    .error{
+        margin-left: 0;
+    }
+    button{
+        margin-left: 0 !important;
+    }
+}

@@ -1,0 +1,128 @@
+
+.slideShow
+{
+    overflow: hidden;
+    button{
+        background-color: rgba(0,0,0,.6);
+        border: none;
+        position:absolute;
+        padding:22px 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        height: fit-content;
+        &:hover{
+            cursor: pointer;
+            background-color: rgba(0,0,0,.9);
+        }
+        svg{
+            width: 18px;
+            color:rgb(201, 201, 201);
+            
+            box-sizing: content-box;
+        }
+    }
+    .pre{
+        left:10px;
+    }
+    .next{
+        right:10px;
+    }
+}
+.slides
+{
+    display: flex;
+    width: 5158px;
+    transition: margin .65s;
+    transform: translateX(calc(-9 * 198px));
+}
+.slide
+{
+    min-width: 188px;
+    width: 188px;
+    height:250px;
+    position:relative;
+    overflow: hidden;
+    margin-right: 10px;
+    animation:appear 1.3s;
+    &:hover{
+        .thumbnail{
+            transform:scale(1.15)
+        }
+        .play{
+            display:block;
+        }
+    }
+    a{
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+    }
+}
+// .slide+.slide{
+//     margin-left: 10px;
+// }
+.play
+{
+    display: none;
+    position: absolute;
+    z-index:11;
+    top:6px;
+    right:6px;
+    padding:35px;
+    background-color: rgba(0,0,0,.6);
+    border-radius: 50%;
+    box-shadow: 0 0 8px 0px white;
+    svg{
+        width: 26px;
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(calc(-50% + 2px),-50%);
+        color:white;
+    }
+}
+.thumbnail
+{
+    background-size: cover;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    transition: transform .3s;
+}
+.brand
+{
+    position: absolute;
+    top:4px;
+    left:4px;
+    padding:4px 6px;
+    border-radius:5px;
+    color:white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #811204;
+}
+.nameWrap
+{
+    height: 50px;
+    position:absolute;
+    bottom:0;
+    width: 100%;
+    color:white;
+    font-size: 1.25rem;
+    background: linear-gradient(0,rgba(0,0,0,1),rgba(0,0,0,0));
+    span{
+        width: 70%;
+        display: block;
+        margin: auto;
+        margin-top: 24px;
+        top:50%;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}

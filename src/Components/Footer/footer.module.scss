@@ -1,0 +1,115 @@
+
+footer{
+    width: 100%;
+    background-color: black;
+    font-size: 1.25rem;
+    overflow: hidden;
+    padding:0 10px;
+    *{
+        color: #778888;
+        text-decoration: none;
+    }
+}
+.footer
+{
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding:16px 0;
+}
+.info
+{
+    *{
+        display: block;
+        padding:4px 0;
+    }
+}
+.contact
+{
+    display: flex;
+    svg{
+        width: 22px;
+    }
+    a{
+        cursor: pointer;
+        &:hover{
+            .faceGroup span{
+                color:white;
+            }
+            .facebook{
+                transform: rotate(360deg);
+                svg{
+                    path{
+                        fill:#304eaf;
+                    }
+                }
+            }
+        }
+    }
+}
+.facebook,.phone
+{
+    display: flex;
+    align-items: center;
+    transition: transform .5s;
+}
+.fanpage
+{
+    display: flex;
+    >*{
+        margin: 0 4px;  
+      }
+}
+.faceGroup
+{
+    button{
+        border-radius: 3px;
+        background-color: #1877f2;
+        color:white;
+        font-weight: bold;
+        border: none;
+        padding:4px 8px;
+        font-size: 1.14rem;
+        cursor: pointer;
+        svg{
+            width: 11px;
+            margin-right: 5px ;
+            path{
+                fill: white;
+            }
+        }
+    }
+    div{
+        margin-top: 8px;
+    }
+    button+button{
+        margin-left: 8px;
+    }
+}
+
+.advertise
+{
+    margin-left: 20px;
+    a{
+        display: flex;
+        height: 100%;
+        align-items: center;
+        &:hover{
+            .phone{
+                transform: rotate(360deg);
+                path{
+                    fill:#46E1FF;
+                }
+            }
+        }
+    }
+    >div{
+        display: flex;
+    }
+    svg{
+        width: 28px;
+        margin-right: 12px;
+    }
+}

@@ -1,0 +1,154 @@
+
+.body{
+    min-height: 200px;
+    width: 100%;
+    position: relative;
+}
+.topAnime
+{
+    margin-top: 20px;
+    padding-left: 20px;
+    transition: margin .3s;
+}
+.topViews,.topComments
+{
+    color:white;
+}
+.heading
+{
+    background: url(https://anime47.com/skin/24032017/img/image.png?v=1.2) no-repeat 0px -83px ;
+    h2{
+        margin-left: 40px;
+        font-size: 1.9rem;
+        line-height: 2.9rem;
+    }
+}
+
+.animeList
+{
+    margin-top: 6px;
+    a{
+        text-decoration: none;
+        color:inherit;
+    }
+}
+.animeItem:first-child{
+    height:120px;
+    position:relative;
+    z-index: 2;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &:hover{
+        filter: brightness(.9);
+        .name{
+            color: #ffe600;
+        }
+    }
+    .thumbnail{
+        display: none;
+    }
+    .name{
+        position: absolute;
+        z-index: 4;
+        top:50%;
+        left:0;
+        padding:0 10px;
+        transform: translateY(-50%);
+        font-size: 1.4rem;
+        width: 100%;
+        text-shadow:-2px 2px 6px #482c6d;
+        text-align: center;
+    }
+    .views{
+        position: absolute;
+        right:15px;
+        bottom:10px;
+        color:rgb(255, 255, 255);
+        font-size: 1.2rem;
+        color:#ffe600;
+        font-weight: bold;
+        text-shadow: -1px 1px 6px black;
+    }
+    .comments
+    {   
+        position: absolute;
+        left:15px;
+        bottom:10px;
+        color:rgb(255, 255, 255);
+        font-size: 1.2rem;
+        color:#ffe600;
+        font-weight: bold;
+        text-shadow: -1px 1px 6px black;
+    }
+}
+.animeItem:nth-child(2n+1){
+    background-color: rgb(22, 22, 22);
+}
+.animeItem:nth-child(2n+2){
+    background-color: rgb(32, 32, 32);
+}
+.animeItem
+{
+    padding:10px;
+    display: flex;
+    &:hover{
+        cursor: pointer;
+        .name{
+            color:#DACB46;
+        }
+        .thumbnail
+        {
+            filter: brightness(.7);
+        }
+    }
+    *{
+        transition: filter .3s, color .3s;
+    }
+}
+.thumbnail
+{
+    width: 48px;
+    height: 60px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.animeInfo
+{
+    margin-left: 10px;
+    flex:1;
+}
+.brand
+{
+    padding:4px 4px;
+    background-color: #811204;
+    margin-left: 4px;
+    float: right;
+}
+.name{
+    font-weight: bold;
+    line-height: 21px;
+    font-size: 1.05rem;
+    height: 21px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.views,.comments
+{
+    font-size: 1.1rem;
+    color: gray;
+    margin-top: 4px;
+}
+
+@media (min-width:739px) and (max-width:1023px)
+{
+    .thumbnail{
+        width: 100px;
+        height:100px
+    }
+    .heading{
+        margin-top: 40px;
+    }
+}

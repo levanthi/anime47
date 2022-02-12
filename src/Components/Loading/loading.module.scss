@@ -1,0 +1,67 @@
+
+$loadingColor:rgb(0, 173, 226);
+
+@keyframes animate{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes changeColor{
+    from{
+        filter: hue-rotate(0);
+    }
+    to{
+        filter:hue-rotate(360deg);
+    }
+}
+
+.loadingWrap
+{
+    width:100%;
+    min-height:200px;
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    .loading{
+        display: block;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        z-index: 12;
+        span{
+            border: 3px solid $loadingColor;
+            border-bottom: 3px solid transparent;
+            position: absolute;
+            top:0;
+            left:0;
+            border-radius: 50%;
+            right:0;
+            bottom:0;
+            animation:animate 1.3s linear infinite; 
+            &::before{
+                content: '';
+                position:absolute;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                right: 5px;
+                bottom:11px;
+                background-color: $loadingColor;
+                box-shadow: 0 0 0 5px rgba(0, 195, 255, 0.356),
+                            0 0 0 10px rgba(0, 195, 255, 0.247),
+                            0 0 0 15px rgba(0, 195, 255, 0.158),
+                            0 0 25px $loadingColor,
+                            0 0 30px $loadingColor;
+                animation:changeColor 1s linear infinite;
+            }
+        }
+    }
+}
