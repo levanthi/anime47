@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/anime47/static/css/main.656306e8.css",
+    "main.js": "/anime47/static/js/main.f5517e30.js",
+    "static/media/volume-up-solid.svg": "/anime47/static/media/volume-up-solid.a09bdbf517c9e51d3192c31146a87017.svg",
+    "static/media/thumbs-up-solid.svg": "/anime47/static/media/thumbs-up-solid.93e6558640b476e6ef479483cec1d53c.svg",
+    "static/media/cog-solid.svg": "/anime47/static/media/cog-solid.540ab5dc24435d2cb38ed8b449b49bea.svg",
+    "static/media/lightbulb-regular.svg": "/anime47/static/media/lightbulb-regular.f46eecaaa4381384d201674b093ac978.svg",
+    "static/media/expand-alt-solid.svg": "/anime47/static/media/expand-alt-solid.67901366d556fc35911d90b53e81d70b.svg",
+    "static/media/expand-solid.svg": "/anime47/static/media/expand-solid.1c00d2f924c8d8b398796365c4b8127b.svg",
+    "static/media/search-solid.svg": "/anime47/static/media/search-solid.cc51b702c98798cd916ea5a3a8ca8b54.svg",
+    "index.html": "/anime47/index.html",
+    "static/media/chevron-right-solid.svg": "/anime47/static/media/chevron-right-solid.c3ee4024f656e1d3c1043faac9201e5f.svg",
+    "static/media/check-solid.svg": "/anime47/static/media/check-solid.5dcf9568d0b63bd4c8e63f66e4f927d5.svg",
+    "static/media/phone-alt-solid.svg": "/anime47/static/media/phone-alt-solid.7df015ac50ab94f543b462dbed99f25e.svg",
+    "static/media/chevron-left-solid.svg": "/anime47/static/media/chevron-left-solid.310de47df4de719b64e0782654db62dc.svg",
+    "static/media/backward-solid.svg": "/anime47/static/media/backward-solid.f7491b11a4d83b30441b7ce6866452f2.svg",
+    "static/media/forward-solid.svg": "/anime47/static/media/forward-solid.0f9ca2c3f96f077b1b5d8c05edd1f6b4.svg",
+    "static/media/pause-solid.svg": "/anime47/static/media/pause-solid.9df23b0187bf5437722a95267de16a62.svg",
+    "static/media/facebook-f-brands.svg": "/anime47/static/media/facebook-f-brands.c719a013d9be7d611d2dd9e1fa4ecf06.svg",
+    "static/media/comment-alt-solid.svg": "/anime47/static/media/comment-alt-solid.7df3f00f8e0e47e451c3254d2d8c85c1.svg",
+    "static/media/caret-down-solid.svg": "/anime47/static/media/caret-down-solid.f5845b071e60a3eedf85c6fe5df7466e.svg",
+    "static/media/play-solid.svg": "/anime47/static/media/play-solid.3c7578b0bb8f6f5b7ce93977efc73570.svg",
+    "main.656306e8.css.map": "/anime47/static/css/main.656306e8.css.map",
+    "main.f5517e30.js.map": "/anime47/static/js/main.f5517e30.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.656306e8.css",
+    "static/js/main.f5517e30.js"
+  ]
+}
