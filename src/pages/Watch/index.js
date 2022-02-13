@@ -234,7 +234,8 @@ function Watch()
                             <Volume/>
                             <div>
                                 <input 
-                                    type='range' 
+                                    type='range'
+                                    value={50} 
                                     min='0' 
                                     max='100'
                                     onChange={(e)=>{

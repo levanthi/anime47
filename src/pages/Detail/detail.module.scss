@@ -153,3 +153,21 @@
         }
     }
 }
+
+@media (max-width:739px)
+{
+    .animeItem{
+        flex-direction: column;
+        .thumbnailGroup{
+            width: 90%;
+            height: 365px;
+            margin: auto;
+        }
+        .animeInfo{
+            width: 100%;
+        }
+    }
+    .animeName{
+        text-align: center;
+    }
+}

@@ -113,3 +113,30 @@ footer{
         margin-right: 12px;
     }
 }
+@media (max-width:739px)
+{
+    .footer{
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact{
+        flex-direction: column;
+    }
+    .info{
+        margin-bottom: 8px;
+    }
+    button{
+        font-size: 1.24rem !important;
+    }
+    button+button{
+        margin-left: 8px !important;
+    }
+    .fanpage{
+        margin-bottom: 8px;
+    }
+    .advertise{
+        margin-left: 0 !important;
+    }
+}

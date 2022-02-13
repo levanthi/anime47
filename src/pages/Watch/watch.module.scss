@@ -478,6 +478,13 @@
         }
     }
     button{
-        margin-left: 6px;
+        margin-left: 6px !important;
+    }
+}
+
+@media (max-width:600px)
+{
+    .backward,.forward,.light,.expand{
+        display: none !important;
     }
 }

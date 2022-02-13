@@ -59,7 +59,7 @@ function App() {
       <Routes>
         <Route path={PATHAPP} element={<Slider/>} ></Route>
       </Routes>
-      <div className='row'>
+      <div className='row content'>
         <div className='col l-8 m-12 c-12'>
         <Routes>
         <Route path={PATHAPP} element={<Home/>} ></Route>

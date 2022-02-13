@@ -149,6 +149,7 @@
             position: relative;
             padding:14px 12px;
             letter-spacing: -1px;
+            user-select: none;
             &:hover{
                 cursor: pointer;
                 background-color: #418A98;
@@ -443,6 +444,9 @@ div.genres
                 opacity: 1;
                 transition-delay: .3s;
             }
+        }
+        .homeButton{
+            visibility: visible !important;
         }
     }
 }
