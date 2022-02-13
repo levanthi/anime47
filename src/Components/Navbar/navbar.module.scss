@@ -162,7 +162,7 @@
             div{
                 z-index: 40;
             }
-            a{
+            div{
                 color:rgb(230, 230, 230);
                 text-decoration: none;
             }
@@ -412,5 +412,37 @@ div.genres
     }
     .filter{
         // margin-top: 150px;
+    }
+}
+
+@media (max-width:1023px)
+{
+    .filterItem{
+        .genres{
+            display: flex !important;
+            visibility: hidden;
+            transition: visibility .2s ease,opacity .2s ease-in-out;
+            transition-delay: .3s;
+            opacity: 0;
+        }
+        :last-child{
+            display: flex !important;
+            visibility: hidden;
+            transition: visibility .2s ease,opacity .2s ease-in-out;
+            transition-delay: .3s;
+            opacity: 0;
+        }
+        &:hover{
+            .genres{
+                visibility: visible !important;
+                opacity: 1;
+                transition-delay: .3s;
+            }
+            :last-child{
+                visibility: visible !important;
+                opacity: 1;
+                transition-delay: .3s;
+            }
+        }
     }
 }

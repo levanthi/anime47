@@ -23,3 +23,18 @@
     display: flex !important;
     align-items: center;
 }
+@media (max-width:739px)
+{
+    .btnListWrap{
+        flex-direction: column;
+        :first-child{
+            margin: 8px 0 !important;
+        }
+        :last-child{
+            margin-bottom: 8px;
+            >*{
+                margin-left: 10px !important;
+            }
+        }
+    }
+}

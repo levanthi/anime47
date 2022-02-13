@@ -33,7 +33,7 @@ function AnimeList({path='anime',limited=20,data})
         <>
             {animeList?animeList.map((anime)=>{
                 return(
-                    <div title={anime.name} key={anime.name} className='col l-3 c-4'>
+                    <div title={anime.name} key={anime.name} className='col l-3 c-4 c-6'>
                         <div className={styles.animeItem}>
                             <span className={styles.brand}>{`${anime.episodes}/${anime.maxEpisodes||'??'}`}</span>
                             <Link to={`/${PATHAPP}${path}/${anime.name.toLowerCase()}`}>

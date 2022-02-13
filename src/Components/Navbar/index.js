@@ -157,37 +157,37 @@ function Navbar()
                     <Link className={styles.homeButton} to={PATHAPP} />
                 </li>
                 <li className={styles.filterItem}>
-                    <Link to=''> THỂ LOẠI</Link>
+                    <div> THỂ LOẠI</div>
                     <div className={clsx(styles.genres,'row')}>
                         {getFilterElement(filterRef.current.genres,'/genres')}
                     </div>
                 </li>
                 <li className={styles.filterItem}>
-                    <Link to=''> TRẠNG THÁI</Link>
+                    <div> TRẠNG THÁI</div>
                     <div className={styles.status}>
                         {getFilterElement(filterRef.current.status,'/status')}
                     </div>
                 </li>
                 <li className={styles.filterItem}>
-                    <Link to=''> XEM NHIỀU</Link>
+                    <div> XEM NHIỀU</div>
                     <div className={styles.topViews}>
                         {getFilterElement(filterRef.current.topViews,'/topview')}
                     </div>
                 </li>
                 <li className={styles.filterItem}>
-                    <Link to=''> BÌNH LUẬN NHIỀU</Link>
+                    <div> BÌNH LUẬN NHIỀU</div>
                     <div className={styles.topComments} >
                         {getFilterElement(filterRef.current.topComments,'/topcomment')}
                     </div>
                 </li>
                 <li className={styles.filterItem}>
-                    <Link to=''> LƯỠNG LONG NHẤT THỂ</Link>
+                    <div> LƯỠNG LONG NHẤT THỂ</div>
                     <div className={styles.duo} >
                         {getFilterElement(filterRef.current.duo,'/duo')}
                     </div>
                 </li>
                 <li className={styles.filterItem}>
-                    <Link to=''> NĂM</Link>
+                    <div> NĂM</div>
                     <div className={styles.year}>
                         {getFilterElement(filterRef.current.year,'/year')}
                     </div>
@@ -197,7 +197,7 @@ function Navbar()
                     <Link className={styles.homeButton} to={`${PATHAPP}/q&a`}></Link>
                 </li>
                 <li className={styles.filterItem}>
-                    <Link to=''> TV/MOVIE</Link>
+                    <div> TV/MOVIE</div>
                     <div className={styles.tvMovie} >
                         {getFilterElement(filterRef.current.TVMovie,'/tvMovie')}
                     </div>
