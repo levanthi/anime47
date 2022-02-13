@@ -160,3 +160,9 @@ body{
                     0 0 10px #ffae00,
                     0 0 20px #ffae00;
 }
+@media (max-width:1023px)
+{
+    .content{
+        padding-bottom: 20px;
+    }
+}
