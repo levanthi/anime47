@@ -89,5 +89,5 @@ function genreToAccent(genre, type) {
     return firstLetter + genre.join("");
   }
   
-  module.exports = genreToAccent;
+export default genreToAccent 
   
