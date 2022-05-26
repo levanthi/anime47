@@ -1,2 +1,2 @@
-export const LIMIT = 8
-export const PATHAPP = 'anime47'
+export const LIMIT = 4
+export const domain = 'http://localhost:3001'

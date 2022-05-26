@@ -1,120 +1,110 @@
-@keyframes appear{
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity:1;
-    }
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-.animeItem
-{
-    position: relative;
-    margin-bottom: 12px;
-    transition: box-shadow .4s;
-    animation:appear 1.3s ;
-    &:hover{
-        cursor: pointer;
-        box-shadow: 0 0 10px rgb(122, 122, 122),
-                    0 0 20px rgb(122, 122, 122),
-                    0 0 40px rgb(122, 122, 122);
-        .thumbnail
-        {
-            transform: scale(1.13);
-        }
-        .play
-        {
-            display: block;
-        }
+.animeItem {
+  position: relative;
+  margin-bottom: 12px;
+  transition: box-shadow 0.4s;
+  animation: appear 1.3s;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px rgb(122, 122, 122), 0 0 20px rgb(122, 122, 122),
+      0 0 40px rgb(122, 122, 122);
+    .thumbnail {
+      transform: scale(1.13);
     }
-    .play
-    {
-        display: none;
-        position:absolute;
-        z-index: 5;
-        top:8px;
-        right:8px;
-        border-radius: 50%;
-        box-shadow: 0 0 5px rgb(179, 179, 179);
-        padding:28px;
-        background-color: rgba(29, 29, 29,.6);
-        svg{
-            position:absolute;
-            top:50%;
-            left:50%;
-            transform: translate(calc(-50% + 2px),-50%);
-            color:white;
-            width: 22px;
-        }
+    .play {
+      display: block;
     }
-    .brand
-    {
-        position:absolute;
-        z-index: 4;
-        top:6px;
-        left:6px;
-        color:white;
-        padding:4px 6px;
-        background-color: #811204;
-        border-radius: 5px;
-        font-size: 1.1rem;
-        font-weight: bold;
+  }
+  .play {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 8px;
+    right: 8px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgb(179, 179, 179);
+    padding: 28px;
+    background-color: rgba(29, 29, 29, 0.6);
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(calc(-50% + 2px), -50%);
+      color: white;
+      width: 22px;
     }
-    a{
-        color:white;
-        text-decoration: none;
-    }
-    .thumbnailWrap
-    {
-        height: 211px;
-        overflow: hidden;
-    }
-    .thumbnail
-    {
-        height:100%;
-        position: relative;
-        background-size: cover;
-        transition: transform .2s;
-    }
-}
-.animeInfo
-{
-    padding:5px;
-    background-color: rgb(29, 29, 29);
-}
-.name
-{
-    color:#44e2ff;
-    font-size: 1.2rem;
-    font-weight:bold;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.numberGroup
-{
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.13rem;
+  }
+  .brand {
+    position: absolute;
+    z-index: 4;
+    top: 6px;
+    left: 6px;
+    color: white;
+    padding: 4px 6px;
+    background-color: #811204;
+    border-radius: 5px;
+    font-size: 1.1rem;
     font-weight: bold;
-    >*{
-        display: flex;
-        svg{
-            width: 10px;
-            margin-right: 6px;
-            color:rgb(255, 102, 0);
-        }
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  .thumbnailWrap {
+    height: 211px;
+    overflow: hidden;
+  }
+  .thumbnail {
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    transition: transform 0.2s;
+  }
+}
+.animeInfo {
+  padding: 5px;
+  background-color: rgb(29, 29, 29);
+}
+.name {
+  color: #44e2ff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.numberGroup {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.13rem;
+  font-weight: bold;
+  > * {
+    display: flex;
+    svg {
+      width: 10px;
+      margin-right: 6px;
+      color: rgb(255, 102, 0);
     }
+  }
+}
+.notFound {
+  color: red;
 }
 
-@media (min-width:740px) and (max-width:1023px)
-{
-    .thumbnailWrap{
-        height: 313px !important;
-    }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .thumbnailWrap {
+    height: 313px !important;
+  }
 }
-@media (max-width:739px)
-{
-    .thumbnailWrap{
-        height: 250px !important;
-    }
+@media (max-width: 739px) {
+  .thumbnailWrap {
+    height: 250px !important;
+  }
 }

@@ -1,7 +1,7 @@
 import {useState,useRef,useEffect} from 'react'
-import { collection, query, where, getDocs } from "firebase/firestore"
+import { useLocation } from 'react-router-dom'
+import axios from 'axios'
 
-import {db} from '../../Firebase/config'
 import Loading from '../../Components/Loading'
 import {ReactComponent as Play} from '../../static/icon/play-solid.svg'
 import {ReactComponent as Pause} from '../../static/icon/pause-solid.svg'
@@ -13,40 +13,25 @@ import {ReactComponent as Setting} from '../../static/icon/cog-solid.svg'
 import {ReactComponent as Expand} from '../../static/icon/expand-alt-solid.svg'
 import {ReactComponent as ExpandAll} from '../../static/icon/expand-solid.svg'
 import converSecondstoHMS from '../../FunctionSpJs/converSecondstoHMS'
-
-
 import styles from './watch.module.scss'
 import topAnimeStyle from '../../Components/TopAnime/topAnime.module.scss'
+import { domain } from '../../FunctionSpJs/constant'
 
 function Watch()
 {
-    const [active,setActive] = useState(0)
+    const location = useLocation()
+    const [active,setActive] = useState(1)
     const [episodes,setEpisode] = useState([]) 
     const [isVideoLoaded,setIsVideoLoaded] = useState(false)
     const videoRef = useRef()
-    // const activeRemember = useRef()
     const isExpand = useRef(false)
+    const expandBtnRef = useRef()
     const idInterValRef = useRef()
     useEffect(()=>{
-        (async()=>{
-            let episodes = []
-            const path = window.location.pathname.slice(window.location.pathname.lastIndexOf('/')+1)
-            const q = query(collection(db, "videos"), where("name", "==", path));
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                episodes = doc.data().episodes
+        axios.get(`${domain}${location.pathname}`)
+            .then(res=>{
+                setEpisode(res.data.episodes)
             })
-            setEpisode(episodes)
-        })()
-        videoRef.current.isPlaying = false;
-        return ()=>{
-            let topAnime = document.querySelector(`.${topAnimeStyle.topAnime}`)
-            if(topAnime)
-            {
-                topAnime.style.marginTop=0
-            }
-            clearInterval(idInterValRef.current)
-        }
     },[])
     function handlePlayStop()
     {
@@ -106,7 +91,7 @@ function Watch()
     {
         let windowWIdth = window.innerWidth
         let videoWrap = document.querySelector(`.${styles.videoWrap}`)
-        let topAnime = document.querySelector(`.${topAnimeStyle.topAnime}`)
+        let topAnime = document.querySelector(`.topAnime`)
         let expandIcon = document.querySelector(`.${styles.expand}`)
         if(expandIcon)
         {
@@ -118,13 +103,17 @@ function Watch()
             {
                 const videoWidth = 990
                 videoWrap.style.width=videoWidth + 'px'
-                topAnime.style.marginTop = (videoWidth*0.56 + 50) + 'px'
+                if(topAnime){
+                    topAnime.style.marginTop = (videoWidth*0.56 + 50) + 'px'
+                }
                 isExpand.current=!isExpand.current
+                expandBtnRef.current.innerText = 'Thu nhỏ'
             }
             else{
                 videoWrap.style.width='100%'
                 topAnime.style.marginTop = 0
                 isExpand.current=!isExpand.current
+                expandBtnRef.current.innerText = 'Phóng to'
             }
         }
     }
@@ -157,7 +146,7 @@ function Watch()
                 <video 
                     preload='metadata'
                     ref={videoRef} type='video/mp4' 
-                    src={episodes[active]}
+                    src={episodes[active-1]?.url}
                     onClick={handlePlayStop}
                     onLoadedData={()=>{
                         let videoState = document.querySelector(`.${styles.videoState}`)
@@ -235,7 +224,6 @@ function Watch()
                             <div>
                                 <input 
                                     type='range'
-                                    value={50} 
                                     min='0' 
                                     max='100'
                                     onChange={(e)=>{
@@ -383,11 +371,11 @@ function Watch()
                 <button onClick={handleLight}>
                     Tắt đèn
                 </button>
-                <button onClick={handleExpand}>
+                <button ref={expandBtnRef} onClick={handleExpand}>
                     Phóng to
                 </button>
                 <button onClick={()=>{
-                    if(active!==0)
+                    if(active!==1)
                     {
                         setIsVideoLoaded(false)
                         setActive(pre=>pre-1)
@@ -403,7 +391,7 @@ function Watch()
                     Prev
                 </button>
                 <button onClick={()=>{
-                    if(active!==episodes.length-1)
+                    if(active!==episodes.length)
                     {
                         setIsVideoLoaded(false)
                         setActive(pre=>pre+1)
@@ -421,14 +409,14 @@ function Watch()
             </div>
             <div className={styles.episodes}>
                 <h3>Danh sách tập</h3>
-                {episodes.map((episode,index)=>{
+                {episodes.map((episode)=>{
                     return <button 
-                        key={index}
-                        className={active===index?'btn-active':''} 
+                        key={episode.episode}
+                        className={active===episode.episode?'btn-active':''} 
                         onClick={()=>{
                             let errorElement = document.querySelector(`.${styles.error}`)
                             errorElement.style.display='none'
-                            if(active!==index)
+                            if(active!==episode.episode)
                             {
                                 setIsVideoLoaded(false)
                                 let playIcon = document.querySelector(`.${styles.play}`)
@@ -448,10 +436,10 @@ function Watch()
                                     top:0,
                                     behavior:'smooth'
                                 })
-                                setActive(index)
+                                setActive(episode.episode)
                             }
                         }}
-                    >{index+1}</button>
+                    >{episode.episode}</button>
                 })}
             </div>
         </div>

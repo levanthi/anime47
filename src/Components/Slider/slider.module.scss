@@ -22,28 +22,16 @@
             box-sizing: content-box;
         }
     }
-    .pre{
-        left:10px;
-    }
     .next{
         right:10px;
     }
 }
-.slides
-{
-    display: flex;
-    width: 5158px;
-    transition: margin .65s;
-    transform: translateX(calc(-9 * 198px));
-}
 .slide
 {
-    min-width: 188px;
-    width: 188px;
     height:250px;
     position:relative;
     overflow: hidden;
-    margin-right: 10px;
+    margin-right:10px;
     animation:appear 1.3s;
     &:hover{
         .thumbnail{

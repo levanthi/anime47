@@ -1,12 +1,12 @@
-import { useRef } from 'react'
+import { useRef,useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import clsx from 'clsx'
-// import { doc, setDoc } from "firebase/firestore"
-// import {db} from '../../Firebase/config'
+import axios from 'axios'
+
 import styles from './home.module.scss'
 import AnimeList from '../../Components/AnimeList'
 import FiterListbutton from '../../Components/FilterListButton'
-import { PATHAPP } from '../../FunctionSpJs/constant'
+import { domain } from '../../FunctionSpJs/constant'
 
 function Home()
 {
@@ -22,6 +22,9 @@ function Home()
             {name:'Bộ cũ',path:'newest/old'},
         ]
     })
+    function apiCreater(path){
+        return `${domain}/${path}`
+    }
     return <div className={styles.home}>
             <div className={styles.body}>
                 <div className='row'>
@@ -35,20 +38,20 @@ function Home()
                             />
                         </div>
                         <div className='row m-100'>
-                            <AnimeList path={'/anime'} limited={20} />
-                            <Link to={`/${PATHAPP}/filter/anime/all`} className='more'>Xem thêm</Link>
+                            <AnimeList api={apiCreater('home/anime')} />
+                            <Link to={`/filter/type/anime`} className='more'>Xem thêm</Link>
                         </div>
 
                         <div className='titleBtnList'>HOẠT HÌNH TRUNG QUỐC</div>
                         <div className='row m-100'>
-                            <AnimeList path={'/china'} limited={4} />
-                            <Link to={`/${PATHAPP}/filter/china/all`} className='more'>Xem thêm</Link>
+                            <AnimeList api={apiCreater('home/china')} />
+                            <Link to={`/filter/type/china`} className='more'>Xem thêm</Link>
                         </div>
 
                         <div className='titleBtnList'>PHIM DẠNG NGƯỜI ĐÓNG</div>
                         <div className='row m-100'>
-                            <AnimeList path={'/live-action'} limited={4} />
-                            <Link to={`/${PATHAPP}/filter/live-action/all`} className='more'>Xem thêm</Link>
+                            <AnimeList api={apiCreater('home/live-action')} />
+                            <Link to={`/filter/type/live-action`} className='more'>Xem thêm</Link>
                         </div>
                     </div>
 

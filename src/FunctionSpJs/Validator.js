@@ -92,7 +92,7 @@ Validator.minLength = (selector,min)=>{
 Validator.passwordComfirmation = (selector,passwordSelector,message)=>{
     function getPassword(){
         const passwordElement = $(passwordSelector)
-        const password = passwordElement.value
+        const password = passwordElement?.value
         return password
     }
     return{

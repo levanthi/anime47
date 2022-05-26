@@ -1,42 +1,33 @@
 import {useEffect, useRef,useState} from 'react'
-import { collection, query, getDocs,limit,orderBy } from "firebase/firestore"
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-import {db} from '../../Firebase/config'
 import FilterListButton from '../FilterListButton'
 import styles from './topAnime.module.scss'
 import twoNumber from '../../FunctionSpJs/twoNumber'
 import Loading from '../Loading'
-import { PATHAPP } from '../../FunctionSpJs/constant'
+import { domain } from '../../FunctionSpJs/constant'
 
 function TopAnime()
 {
     const [topViews,setTopViews] = useState()
     const [topComments,setTopComments] = useState()
+
     useEffect(()=>{
-        (async ()=>{
-            const topViews = []
-            const q = query(collection(db, "anime"), orderBy("views",'desc'),limit(10))
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                topViews.push(doc.data())
+        axios.get(`${domain}/topViews`)
+            .then(res=>{
+                setTopViews(res.data)
             })
-            setTopViews(topViews)
-        })()
+            .catch(err=>console.log(err))
     },[])
 
     useEffect(()=>{
-        (async ()=>{
-            const topComments = []
-            const q = query(collection(db, "anime"), orderBy("comments",'desc'),limit(10))
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                topComments.push(doc.data())
+        axios.get(`${domain}/topComments`)
+            .then(res=>{
+                setTopComments(res.data)
             })
-            setTopComments(topComments)
-        })()
+            .catch(err=>console.log(err))
     },[])
-
 
     const topViewsRef = useRef({
         handleClick:async function(path){
@@ -65,16 +56,16 @@ function TopAnime()
         ]
     })
     return (
-        <div className={styles.topAnime}>
+        <div className={'topAnime'}>
             {/* TOP VIEWS */}
-            <div className={styles.topViews}>
+            <div className={styles.topView}>
                 <div className={styles.heading}>
                     <h2>XEM NHIỀU NHẤT</h2>
                 </div>
                 <FilterListButton
                     list={topViewsRef.current}
                     active={topViewsRef.current.buttonList[0].name}
-                    parentSelector={`.${styles.topViews}`}
+                    parentSelector={`.${styles.topView}`}
                 />
                 <div className={styles.body}>
                     {topViews?
@@ -83,7 +74,7 @@ function TopAnime()
                                 return(
                                     <Link
                                         key={anime.name} 
-                                        to={`${PATHAPP}/anime/${anime.name}`} 
+                                        to={`/detail/${anime.id}`} 
                                         className={styles.animeItem}
                                         style={index===0?{backgroundImage:`url(${anime.thumbnail})`}:{}}
                                     >
@@ -94,7 +85,7 @@ function TopAnime()
                                         <div className={styles.animeInfo}>
                                             <span className={styles.brand}>
                                                 {
-                                                    `${twoNumber(anime.episodes)}/${twoNumber(anime.maxEpisodes)}`
+                                                    `${twoNumber(anime.currentEp)}/${twoNumber(anime.endEp)}`
                                                 }
                                             </span>
                                             <div className={styles.name}>
@@ -129,7 +120,7 @@ function TopAnime()
                                 return(
                                     <Link
                                         key={anime.name} 
-                                        to={`${PATHAPP}/anime/${anime.name}`} 
+                                        to={`/detail/${anime.id}`} 
                                         className={styles.animeItem}
                                         style={index===0?{backgroundImage:`url(${anime.thumbnail})`}:{}}
                                     >
@@ -140,7 +131,7 @@ function TopAnime()
                                         <div className={styles.animeInfo}>
                                             <span className={styles.brand}>
                                                 {
-                                                    `${twoNumber(anime.episodes)}/${twoNumber(anime.maxEpisodes)}`
+                                                    `${twoNumber(anime.currentEp)}/${twoNumber(anime.endEp)}`
                                                 }
                                             </span>
                                             <div className={styles.name}>

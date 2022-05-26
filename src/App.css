@@ -46,6 +46,11 @@ body{
 {
     padding:0 4px;
 }
+.swiper{
+    display:flex;
+    margin-right: -10px;
+    height: 100%;
+}
 .slideShowWrap{
     margin-top:20px;
     max-width: 1000px;
@@ -54,6 +59,16 @@ body{
     padding:10px;
     background-color: rgb(27, 27, 27);
     position: relative;
+}
+.slideShowWrap::after{
+    content: '';
+    width: 10px;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 0;
+    bottom:0;
+    background-color: rgb(27, 27, 27);
 }
 .filter-btn{
     border:none;
@@ -89,6 +104,12 @@ body{
 }
 .filter-btn + .filter-btn{
     margin-left:10px;
+}
+.topAnime
+{
+    margin-top: 20px;
+    padding-left: 20px;
+    transition: margin .3s;
 }
 .active{
     background-color:var(--active-color);
