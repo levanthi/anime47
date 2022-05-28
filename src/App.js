@@ -23,14 +23,6 @@ function App() {
   const [user,setUser] = useState()
 
   useEffect(()=>{
-    axios.get('https://anime47-node.herokuapp.com/')
-      .then(res=>res.data)
-      .then(data=>{
-        console.log(data)
-      })
-  },[])
-
-  useEffect(()=>{
     const user = JSON.parse(localStorage.getItem('anime47'))
     if(user)
     {
