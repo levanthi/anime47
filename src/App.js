@@ -15,7 +15,6 @@ import Login from './Components/Login'
 import Favorite from './pages/Favorite'
 import './App.css'
 import './static/css/grid.css'
-import axios from 'axios'
 
 export const userContext = createContext()
 
