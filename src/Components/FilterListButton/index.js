@@ -1,8 +1,7 @@
 import clsx from "clsx";
 import { memo } from "react";
 
-function FiterListbutton({ list, active, parentSelector }) {
-  console.log("FilterButton-render");
+function FilterListButton({ list, active, parentSelector }) {
   const { handleClick, buttonList } = list;
   return (
     <div>
@@ -29,4 +28,4 @@ function FiterListbutton({ list, active, parentSelector }) {
   );
 }
 
-export default memo(FiterListbutton);
+export default memo(FilterListButton);

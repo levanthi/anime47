@@ -1,11 +1,10 @@
-import { useRef,useState,useEffect } from 'react'
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import clsx from 'clsx'
-import axios from 'axios'
 
 import styles from './home.module.scss'
 import AnimeList from '../../Components/AnimeList'
-import FiterListbutton from '../../Components/FilterListButton'
+import FilterListButton from '../../Components/FilterListButton'
 import { domain } from '../../FunctionSpJs/constant'
 
 function Home()
@@ -31,7 +30,7 @@ function Home()
                     <div className={clsx('col l-12')}>
                         <div className={styles.btnListWrap}>
                             <div className='titleBtnList'>ANIME MỚI CẬP NHẬT</div>
-                            <FiterListbutton 
+                            <FilterListButton 
                                 list={listRef.current} 
                                 active={listRef.current.buttonList[0].name}
                                 parentSelector = {`.${styles.btnListWrap}`}

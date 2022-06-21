@@ -120,6 +120,15 @@ function Navbar() {
           to={`/filter${path}/${removeAccents(
             genresToPath(genre).replaceAll(" ", "-").toLowerCase()
           )}`}
+          onClick={()=>{
+            const filterListElement = document.querySelector(`.${styles.filterList}`)
+            if(filterListElement){
+              filterListElement.style.pointerEvents = 'none'
+              setTimeout(()=>{
+                filterListElement.style.pointerEvents = 'all'
+              },800)
+            }
+          }}
         >
           {genre}
         </Link>

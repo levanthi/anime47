@@ -10,18 +10,21 @@ import { ReactComponent as Play } from "../../static/icon/play-solid.svg";
 import Loading from "../Loading";
 import Pagination from "../Pagination";
 import { LIMIT } from "../../FunctionSpJs/constant";
-import { type } from "@testing-library/user-event/dist/type";
 
 function AnimeList({ api, pagination = false, authorization = {} }) {
   const [animeList, setAnimeList] = useState([]);
   let [currentPage, setCurrentPage] = useState(1);
   const [pageNumb, setPageNumb] = useState();
   const [isEmpty, setIsEmpty] = useState(false);
+  const [isLoading,setIsLoading] = useState(false)
+
   const currentPageFlag = useRef(true);
+
 
   function handleApiWithPagination(page) {
     if (pagination) {
       if (!api) return;
+      setIsLoading(true)
       axios
         .get(api, {
           params: {
@@ -40,10 +43,12 @@ function AnimeList({ api, pagination = false, authorization = {} }) {
           if (pageNumb !== res.data.pageNumb) {
             setPageNumb(res.data.pageNumb);
           }
-        });
+        })
+        .finally(()=>{
+          setIsLoading(false)
+        })
     }
   }
-
   //reset CURRENT PAGE and prevent useEffect currentPage running
   useEffect(() => {
     currentPageFlag.current = false;
@@ -55,8 +60,6 @@ function AnimeList({ api, pagination = false, authorization = {} }) {
     // check is need to running? when type and api change, it's no need to call api again
     if (currentPageFlag.current) {
       handleApiWithPagination();
-    } else {
-      currentPageFlag.current = true;
     }
   }, [currentPage]);
   useEffect(() => {
@@ -107,13 +110,14 @@ function AnimeList({ api, pagination = false, authorization = {} }) {
           </div>
         );
       })}
-      {!!animeList.length || isEmpty || <Loading />}
+      {isLoading && <Loading/>}
       {isEmpty && <h2 className={styles.notFound}>Không tìm thấy kết quả!</h2>}
       {pagination && !!animeList.length && (
         <Pagination
           pageNumb={pageNumb}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
+          ref={currentPageFlag}
         />
       )}
     </>

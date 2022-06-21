@@ -14,7 +14,6 @@ import {ReactComponent as Expand} from '../../static/icon/expand-alt-solid.svg'
 import {ReactComponent as ExpandAll} from '../../static/icon/expand-solid.svg'
 import converSecondstoHMS from '../../FunctionSpJs/converSecondstoHMS'
 import styles from './watch.module.scss'
-import topAnimeStyle from '../../Components/TopAnime/topAnime.module.scss'
 import { domain } from '../../FunctionSpJs/constant'
 
 function Watch()
@@ -83,7 +82,6 @@ function Watch()
             overlayElement.style.visibility='visible'
             overlayElement.style.opacity='1'
         }
-        console.log()
         if(lightElement)
             lightElement.classList.toggle('video-controls-active')
     }

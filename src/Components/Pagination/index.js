@@ -1,6 +1,7 @@
+import {forwardRef} from 'react'
 import styles from "./pagination.module.scss";
 
-function Pagination({ pageNumb, currentPage, setCurrentPage }) {
+function Pagination({ pageNumb, currentPage, setCurrentPage },ref) {
   const isOverFlow = !!(pageNumb >= 8) || false;
   let pageArr = [];
   if (isOverFlow) {
@@ -14,11 +15,17 @@ function Pagination({ pageNumb, currentPage, setCurrentPage }) {
     if(currentPage>=pageNumb-6){
         start = pageNumb-6
     }
-    for(var i=start;i<start+6;i++){
-        pageArr.push(i)
+    for(var j=start;j<start+6;j++){
+        pageArr.push(j)
     }
   } else {
     pageArr = [...Array(pageNumb)].map((value,index)=>(index+1))
+  }
+  const scrollToTop = ()=>{
+    window.scroll({
+      behavior: "smooth",
+      top: 0,
+    });
   }
   return (
     <div className={styles.pagination}>
@@ -26,10 +33,8 @@ function Pagination({ pageNumb, currentPage, setCurrentPage }) {
         onClick={() => {
           if (currentPage > 1) {
             setCurrentPage((pre) => pre - 1);
-            window.scroll({
-              behavior: "smooth",
-              top: 0,
-            });
+            scrollToTop()
+            ref.current = true
           }
         }}
       >
@@ -43,10 +48,8 @@ function Pagination({ pageNumb, currentPage, setCurrentPage }) {
             onClick={() => {
               if (currentPage !== page) {
                 setCurrentPage(page);
-                window.scroll({
-                  behavior: "smooth",
-                  top: 0,
-                });
+                scrollToTop()
+                ref.current = true
               }
             }}
           >
@@ -61,10 +64,7 @@ function Pagination({ pageNumb, currentPage, setCurrentPage }) {
         onClick={() => {
           if (currentPage !== pageNumb) {
             setCurrentPage(pageNumb);
-            window.scroll({
-              behavior: "smooth",
-              top: 0,
-            });
+            scrollToTop()
           }
         }}
       >{pageNumb}</button>}
@@ -72,10 +72,7 @@ function Pagination({ pageNumb, currentPage, setCurrentPage }) {
         onClick={() => {
           if (currentPage !== pageNumb) {
             setCurrentPage((pre) => pre + 1);
-            window.scroll({
-              behavior: "smooth",
-              top: 0,
-            });
+            scrollToTop()
           }
         }}
       >
@@ -85,4 +82,4 @@ function Pagination({ pageNumb, currentPage, setCurrentPage }) {
   );
 }
 
-export default Pagination;
+export default forwardRef(Pagination);

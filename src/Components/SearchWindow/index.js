@@ -29,7 +29,6 @@ function SearchWindow({searchInput})
         })
     },[searchInput])
     return <>
-        <div className={styles.empty}>Không tìm thấy....</div>
         {isLoading?<Loading/>:''}
         <div className={styles.searchList}>
             {animeList.map((animeItem)=>{
